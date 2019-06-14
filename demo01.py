@@ -10,7 +10,13 @@ def index():
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    people_list = ["Tom", "Merry", "Jim"]
+    return render_template("index.html", peoples=people_list)
+
+
+@app.route("/user_info/<username>")
+def user_info(username):
+    return render_template("user_info.html", username=username)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax案例</title>
+    <script src="{{ url_for("static", filename='js/jquery.js') }}"></script>
+</head>
+<body>
+
+<button id="btn1">按钮1</button>
+<button id="btn2">按钮2</button>
+
+<p id="para1">这是一段文字</p>
+
+<script>
+    $("#btn1").click(function () {
+        $.ajax({
+            url: '/get_info',
+            type: 'GET',
+            async: false,
+            success: function (res) {
+                alert(res.name);
+                $("#para1").html(res.name);
+            },
+            error: function () {
+                alert('服务器超时，请重试！');
+
+            }
+        })
+    });
+
+    $("#btn2").click(function () {
+        alert("Hello!");
+    })
+
+
+</script>
+
+</body>
+</html>
