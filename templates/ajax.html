@@ -31,8 +31,20 @@
 
     $("#btn2").click(function () {
         alert("Hello!");
-    })
+    });
 
+    $.ajax({
+        type: 'get',
+        url: '${SITE_URL}search_business/',
+        success: function (res) {
+            if (res.result) {
+                // do something
+            } else {
+                // do something
+                alert(res.message);
+            }
+        }
+    });
 
 </script>
 
