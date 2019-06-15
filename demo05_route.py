@@ -65,7 +65,6 @@ def check_number(phone_number):
     return phone_number
 
 
-
 @app.route("/dail/<int:phone_number1>")
 def dail_number(phone_number1):
     url = url_for("check_number", phone_number=phone_number1)
